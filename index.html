@@ -16,42 +16,44 @@
         </div>
     </section>
 
-    <button id="open-menu-btn">
+    <button id="open-menu-btn" title="Open Menu">
         <i class="fas fa-bars"></i>
     </button>
 
     <nav id="sidebar">
-        <button class="close-btn">&times;</button>
+        <button class="close-btn" title="Close Menu">&times;</button>
         
         <div class="sidebar-content">
+            <section id="profile">
+                <h2>Profile</h2>
+                <p>
+                    Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts. Skilled in Java, Python, and C/C++ with hands-on experience in database management and web application development. Eager to contribute to innovative projects, quickly adapt to new technologies, and deliver impactful solutions.
+                </p>
+            </section>
+
             <section id="contact">
                 <h2>Contact</h2>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div><strong>Phone:</strong> +91 9449671820</div>
+                    <i class="fas fa-phone fa-fw"></i>
+                    <span>+91 9449671820</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div><a href="mailto:praneethpajimanu124@gmail.com">Email Me</a></div>
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <a href="mailto:praneethpajimanu124@gmail.com">praneethpajimanu124@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div><strong>Location:</strong> Puttur, Karnataka</div>
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <span>Puttur, Karnataka</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <div><a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></div>
+                    <i class="fab fa-linkedin fa-fw"></i>
+                    <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a>
                 </div>
-            </section>
-
-            <section id="profile">
-                <h2>Profile</h2>
-                <p>Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts...</p>
             </section>
 
             <section id="education">
                 <h2>Education</h2>
-                <h3>Bachelor’s in Computer Science</h3>
+                <h3>Bachelor’s Degree in Computer Science</h3>
                 <p>Vivekananda College of Engineering and Technology (2023–2027)</p>
             </section>
 
@@ -64,7 +66,16 @@
                     <li>Data Structures & OOP</li>
                     <li>HTML, CSS, JS</li>
                     <li>Flask</li>
-                    <li>MySQL</li>
+                    <li>MySQL (CRUD)</li>
+                </ul>
+            </section>
+
+             <section id="strengths">
+                <h2>Strengths</h2>
+                <ul>
+                    <li>Analytical Thinking</li>
+                    <li>Teamwork</li>
+                    <li>Communication</li>
                 </ul>
             </section>
 
@@ -82,11 +93,56 @@
                     <h3>Database System</h3>
                     <p>Java + MySQL (CRUD)</p>
                 </div>
+                <div class="project-card">
+                    <h3>Cybersecurity Tool</h3>
+                    <p>Password checker & vulnerability scanner</p>
+                </div>
+            </section>
+            
+            <section id="achievements">
+                <h2>Achievements & Certifications</h2>
+                <div class="achievement-item">
+                    <h3>100+ Problems Solved</h3>
+                    <p>LeetCode, HackerRank, Codeforces</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Certifications</h3>
+                    <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
+                </div>
             </section>
         </div>
     </nav>
     
-    <script src="script.js"></script>
+    <script>
+        // This ensures the code runs only after the webpage's content has fully loaded.
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Find the important elements on the page and store them in variables.
+            const sidebar = document.getElementById('sidebar');
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeBtn = document.querySelector('.close-btn');
+
+            // Check if all elements were found before adding event listeners.
+            if (sidebar && openMenuBtn && closeBtn) {
+                
+                // When the "hamburger" button is clicked, add the 'open' class to the sidebar.
+                // This makes it slide into view because of the CSS rule.
+                openMenuBtn.addEventListener('click', () => {
+                    sidebar.classList.add('open');
+                });
+
+                // When the "close" button (the '×') is clicked, remove the 'open' class.
+                // This makes the sidebar slide back out of view.
+                closeBtn.addEventListener('click', () => {
+                    sidebar.classList.remove('open');
+                });
+
+            } else {
+                // If an element wasn't found, log an error to the browser's console.
+                console.error('Could not find one or more required elements: sidebar, open-menu-btn, or close-btn.');
+            }
+        });
+    </script>
 
 </body>
 </html>
