@@ -14,63 +14,47 @@
             <h1>Hi, I'm Praneeth P</h1>
             <p>Aspiring Computer Science Engineer | Passionate about Software Development & Design</p>
         </div>
-        <div class="scroll-down-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
     </section>
 
-    <main id="main-content">
+    <button id="open-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-container">
+    <nav id="sidebar">
+        <button class="close-btn">&times;</button>
+        
+        <div class="sidebar-content">
+            <section id="contact">
+                <h2>Contact</h2>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Phone</strong>
-                        <p>+91 9449671820</p>
-                    </div>
+                    <div><strong>Phone:</strong> +91 9449671820</div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p><a href="mailto:praneethpajimanu124@gmail.com">praneethpajimanu124@gmail.com</a></p>
-                    </div>
+                    <div><a href="mailto:praneethpajimanu124@gmail.com">Email Me</a></div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Location</strong>
-                        <p>Puttur, Karnataka</p>
-                    </div>
+                    <div><strong>Location:</strong> Puttur, Karnataka</div>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <div>
-                        <strong>LinkedIn</strong>
-                        <p><a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">View Profile</a></p>
-                    </div>
+                    <div><a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="profile">
-            <h2>Profile</h2>
-            <p>
-                Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts. Skilled in Java, Python, and C/C++ with hands-on experience in database management and web application development. Eager to contribute to innovative projects, quickly adapt to new technologies, and deliver impactful solutions.
-            </p>
-        </section>
+            <section id="profile">
+                <h2>Profile</h2>
+                <p>Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts...</p>
+            </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor’s Degree in Computer Science</h3>
+            <section id="education">
+                <h2>Education</h2>
+                <h3>Bachelor’s in Computer Science</h3>
                 <p>Vivekananda College of Engineering and Technology (2023–2027)</p>
-            </div>
-        </section>
+            </section>
 
-        <div class="grid-container">
             <section id="skills">
                 <h2>Skills</h2>
                 <ul>
@@ -80,23 +64,12 @@
                     <li>Data Structures & OOP</li>
                     <li>HTML, CSS, JS</li>
                     <li>Flask</li>
-                    <li>MySQL (CRUD, Optimization)</li>
+                    <li>MySQL</li>
                 </ul>
             </section>
 
-            <section id="strengths">
-                <h2>Strengths</h2>
-                <ul>
-                    <li>Analytical Thinking</li>
-                    <li>Teamwork</li>
-                    <li>Communication</li>
-                </ul>
-            </section>
-        </div>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
+            <section id="projects">
+                <h2>Projects</h2>
                 <div class="project-card">
                     <h3>Contact Book App</h3>
                     <p>Flask, Python, HTML, MySQL</p>
@@ -109,30 +82,11 @@
                     <h3>Database System</h3>
                     <p>Java + MySQL (CRUD)</p>
                 </div>
-                <div class="project-card">
-                    <h3>Cybersecurity Tool</h3>
-                    <p>Password checker & vulnerability scanner</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="achievements">
-            <h2>Achievements & Certifications</h2>
-            <div class="achievement-item">
-                <h3>100+ Problems Solved</h3>
-                <p>LeetCode, HackerRank, Codeforces</p>
-            </div>
-            <div class="achievement-item">
-                <h3>Certifications From</h3>
-                <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Praneeth P. All rights reserved.</p>
-    </footer>
+            </section>
+        </div>
+    </nav>
+    
+    <script src="script.js"></script>
 
 </body>
 </html>
