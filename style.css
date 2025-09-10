@@ -1,10 +1,10 @@
 :root {
     --primary-color: #007BFF;
-    --sidebar-bg: #1e222d;
-    --content-bg: #f4f7f6;
-    --card-bg: #ffffff;
-    --text-color: #333333;
-    --sidebar-text: #e1e1e1;
+    --background-card-color: rgba(255, 255, 255, 0.95);
+    --nav-background-color: rgba(20, 25, 35, 0.85);
+    --text-color: #333;
+    --heading-color: #1a1a1a;
+    --light-text-color: #f0f0f0;
 }
 
 body, html {
@@ -12,110 +12,157 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Disables all scrolling */
+    overflow: hidden; /* This is critical: it disables all scrolling */
 }
 
-/* Hide the radio buttons */
+/* This hides the radio buttons, which only exist to control the CSS */
 input[name="page-toggle"] {
     display: none;
 }
 
-/* --- Hero Section --- */
-#hero {
-    display: none; /* Hidden by default */
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+/* --- Permanent Background --- */
+#hero-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto-format&fit=crop') no-repeat center center/cover;
+    z-index: -1; /* Puts the background behind everything else */
+}
+
+#hero-background footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
 }
-.enter-button {
+
+/* --- Top Navigation --- */
+#top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-background-color);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+}
+.nav-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-text-color);
+}
+.nav-links .nav-link {
+    color: var(--light-text-color);
+    margin: 0 15px;
+    padding: 5px 0;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+.nav-links .nav-link:hover {
+    color: var(--primary-color);
+}
+/* Underline effect for links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
     background-color: var(--primary-color);
-    color: white;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    display: inline-block;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
 }
-
-/* --- Main Content Layout --- */
-#main-content-wrapper {
-    display: none; /* Hidden by default */
-    height: 100vh;
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
-
-/* --- Sidebar Navigation --- */
-#sidebar {
-    width: 250px;
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-text);
-    padding: 20px;
-    flex-shrink: 0;
-}
-.nav-links { list-style: none; padding: 0; }
-.nav-link {
-    display: block;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.nav-link:hover { background-color: rgba(255, 255, 255, 0.1); }
-.nav-link i { margin-right: 15px; }
 
 /* --- Main Content Area --- */
-#main-content {
-    flex-grow: 1;
-    background-color: var(--content-bg);
-    padding: 40px;
-    overflow-y: auto;
+#content-display-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 60px; /* Offset for the fixed nav bar */
 }
+
+/* --- Individual Content Sections (Cards) --- */
 .page-section {
     display: none; /* Hide all sections by default */
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 8px;
+    background-color: var(--background-card-color);
+    padding: 25px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 700px;
+    max-height: 70vh;
+    overflow-y: auto;
+    color: var(--text-color);
+    animation: fadeInScale 0.5s ease-out;
 }
-.page-section h2 { margin-top: 0; }
-
-/* --- THE CSS LOGIC --- */
-
-/* Show Hero page by default */
-#page-hero:checked ~ #hero {
-    display: flex;
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
-
-/* When any page other than hero is checked, show the main wrapper */
-#page-profile:checked ~ #main-content-wrapper,
-#page-contact:checked ~ #main-content-wrapper,
-#page-education:checked ~ #main-content-wrapper,
-#page-skills:checked ~ #main-content-wrapper,
-#page-projects:checked ~ #main-content-wrapper,
-#page-achievements:checked ~ #main-content-wrapper {
-    display: flex;
+.page-section h2 {
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
 }
+.page-section h2 i { margin-right: 12px; }
+.contact-list a { color: var(--primary-color); text-decoration: none; }
+.contact-list a:hover { text-decoration: underline; }
 
-/* Show the correct page section based on the checked radio */
-#page-profile:checked ~ #main-content-wrapper #profile,
-#page-contact:checked ~ #main-content-wrapper #contact,
-#page-education:checked ~ #main-content-wrapper #education,
-#page-skills:checked ~ #main-content-wrapper #skills,
-#page-projects:checked ~ #main-content-wrapper #projects,
-#page-achievements:checked ~ #main-content-wrapper #achievements {
+/* ============================================= */
+/* ====== THE PURE CSS LOGIC STARTS HERE ======= */
+/* ============================================= */
+
+/* RULE: When a specific radio button is checked, display its corresponding page section */
+/* The '~' (general sibling selector) is key here. It finds the #content-display-area that comes after the checked input */
+#page-profile:checked ~ #content-display-area #profile,
+#page-contact:checked ~ #content-display-area #contact,
+#page-education:checked ~ #content-display-area #education,
+#page-skills:checked ~ #content-display-area #skills,
+#page-projects:checked ~ #content-display-area #projects,
+#page-achievements:checked ~ #content-display-area #achievements {
     display: block;
 }
 
-/* Style the active navigation link */
-#page-profile:checked ~ #main-content-wrapper label[for="page-profile"],
-#page-contact:checked ~ #main-content-wrapper label[for="page-contact"],
-#page-education:checked ~ #main-content-wrapper label[for="page-education"],
-#page-skills:checked ~ #main-content-wrapper label[for="page-skills"],
-#page-projects:checked ~ #main-content-wrapper label[for="page-projects"],
-#page-achievements:checked ~ #main-content-wrapper label[for="page-achievements"] {
-    background-color: var(--primary-color);
-    color: white;
+/* RULE: When a specific radio is checked, highlight its corresponding navigation link (label) */
+#page-profile:checked ~ #top-nav label[for="page-profile"],
+#page-contact:checked ~ #top-nav label[for="page-contact"],
+#page-education:checked ~ #top-nav label[for="page-education"],
+#page-skills:checked ~ #top-nav label[for="page-skills"],
+#page-projects:checked ~ #top-nav label[for="page-projects"],
+#page-achievements:checked ~ #top-nav label[for="page-achievements"] {
+    color: var(--primary-color);
     font-weight: 600;
+}
+/* This adds the underline to the active link without needing hover */
+#page-profile:checked ~ #top-nav label[for="page-profile"]::after,
+#page-contact:checked ~ #top-nav label[for="page-contact"]::after,
+#page-education:checked ~ #top-nav label[for="page-education"]::after,
+#page-skills:checked ~ #top-nav label[for="page-skills"]::after,
+#page-projects:checked ~ #top-nav label[for="page-projects"]::after,
+#page-achievements:checked ~ #top-nav label[for="page-achievements"]::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
