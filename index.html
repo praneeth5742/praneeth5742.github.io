@@ -12,82 +12,88 @@
 </head>
 <body>
 
-    <input type="radio" name="page-toggle" id="page-hero" checked>
-    <input type="radio" name="page-toggle" id="page-profile">
+    <input type="radio" name="page-toggle" id="page-profile" checked>
     <input type="radio" name="page-toggle" id="page-contact">
     <input type="radio" name="page-toggle" id="page-education">
     <input type="radio" name="page-toggle" id="page-skills">
     <input type="radio" name="page-toggle" id="page-projects">
     <input type="radio" name="page-toggle" id="page-achievements">
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Praneeth P</h1>
-            <p>Aspiring Computer Science Engineer | Passionate about Software Development & Design</p>
-            <label for="page-profile" class="enter-button">View My Work</label>
-        </div>
+    <section id="hero-background">
+        <footer>
+            &copy; 2025 Praneeth P. All Rights Reserved.
+        </footer>
     </section>
 
-    <div id="main-content-wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Praneeth P</h3>
-            </div>
-            <ul class="nav-links">
-                <li><label for="page-profile" class="nav-link"><i class="fas fa-user-circle"></i> Profile</label></li>
-                <li><label for="page-contact" class="nav-link"><i class="fas fa-address-book"></i> Contact</label></li>
-                <li><label for="page-education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</label></li>
-                <li><label for="page-skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</label></li>
-                <li><label for="page-projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</label></li>
-                <li><label for="page-achievements" class="nav-link"><i class="fas fa-trophy"></i> Achievements</label></li>
+    <header id="top-nav">
+        <div class="nav-container">
+            <div class="nav-title">Praneeth P</div>
+            <nav class="nav-links">
+                <label for="page-profile" class="nav-link">Profile</label>
+                <label for="page-contact" class="nav-link">Contact</label>
+                <label for="page-education" class="nav-link">Education</label>
+                <label for="page-skills" class="nav-link">Skills</label>
+                <label for="page-projects" class="nav-link">Projects</label>
+                <label for="page-achievements" class="nav-link">Achievements</label>
+            </nav>
+        </div>
+    </header>
+
+    <main id="content-display-area">
+        
+        <section id="profile" class="page-section">
+            <h2><i class="fas fa-user-circle"></i> Profile</h2>
+            <p>Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts. Skilled in Java, Python, and C/C++ with hands-on experience in database management and web application development. Eager to contribute to innovative projects, quickly adapt to new technologies, and deliver impactful solutions.</p>
+        </section>
+        
+        <section id="contact" class="page-section">
+            <h2><i class="fas fa-address-book"></i> Contact</h2>
+            <ul class="contact-list">
+                <li><i class="fas fa-phone"></i> +91 9449671820</li>
+                <li><i class="fas fa-envelope"></i> praneethpajimanu124@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> Puttur, Karnataka</li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></li>
             </ul>
-        </nav>
+        </section>
 
-        <main id="main-content">
-            <section id="profile" class="page-section">
-                <h2><i class="fas fa-user-circle"></i> Profile</h2>
-                <p>Detail-oriented...</p>
-            </section>
-            
-            <section id="contact" class="page-section">
-                <h2><i class="fas fa-address-book"></i> Contact</h2>
-                <ul class="contact-list">
-                    <li><i class="fas fa-phone"></i> +91 9449671820</li>
-                    <li><i class="fas fa-envelope"></i> praneethpajimanu124@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Puttur, Karnataka</li>
-                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></li>
-                </ul>
-            </section>
+        <section id="education" class="page-section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h3>Bachelor’s Degree in Computer Science</h3>
+            <p>Vivekananda College of Engineering and Technology</p>
+            <p class="date">(2023–2027)</p>
+        </section>
 
-            <section id="education" class="page-section">
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                <h3>Bachelor’s Degree in Computer Science</h3>
-                <p>Vivekananda College of Engineering and Technology</p>
-                <p class="date">(2023–2027)</p>
-            </section>
+        <section id="skills" class="page-section">
+             <h2><i class="fas fa-cogs"></i> Skills & Strengths</h2>
+            <ul class="skills-list">
+                <li>Java, C, Python</li>
+                <li>Data Structures & OOP</li>
+                <li>HTML, CSS, JS, Flask</li>
+                <li>MySQL (CRUD, Optimization)</li>
+                <li>Analytical Thinking & Teamwork</li>
+            </ul>
+        </section>
 
-            <section id="skills" class="page-section">
-                 <h2><i class="fas fa-cogs"></i> Skills & Strengths</h2>
-                <ul class="skills-list">
-                    <li>Java, C, Python</li>
-                    <li>Data Structures & OOP</li>
-                    <li>HTML, CSS, JS, Flask</li>
-                    <li>MySQL (CRUD, Optimization)</li>
-                    <li>Analytical Thinking & Teamwork</li>
-                </ul>
-            </section>
+        <section id="projects" class="page-section">
+            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+            <div class="project-item">
+                <h3>Contact Book App</h3><p><strong>Technologies:</strong> Flask, Python, HTML, MySQL</p>
+            </div>
+            <div class="project-item">
+                <h3>Chat Application</h3><p><strong>Description:</strong> Real-time Flask app for instant messaging.</p>
+            </div>
+        </section>
 
-            <section id="projects" class="page-section">
-                <h2><i class="fas fa-project-diagram"></i> Projects</h2>
-                <p>Contact Book App, Chat Application...</p>
-            </section>
+        <section id="achievements" class="page-section">
+            <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+            <h3>100+ Problems Solved</h3>
+            <p>Platforms: LeetCode, HackerRank, Codeforces</p>
+            <hr>
+            <h3>Certifications</h3>
+            <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
+        </section>
 
-            <section id="achievements" class="page-section">
-                <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
-                <p>100+ Problems Solved, Certifications from AWS...</p>
-            </section>
-        </main>
-    </div>
+    </main>
 
 </body>
 </html>
