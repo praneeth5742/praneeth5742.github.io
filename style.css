@@ -21,7 +21,7 @@ input[name="page-toggle"] {
 
 /* --- The Hero Section Element --- */
 #hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto-format&fit=crop') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
     color: white;
     text-align: center;
 }
@@ -32,14 +32,8 @@ input[name="page-toggle"] {
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-.hero-content p {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
+.hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+.hero-content p { font-size: 1.2rem; font-weight: 300; }
 .enter-button {
     background-color: var(--primary-color);
     color: white;
@@ -51,9 +45,7 @@ input[name="page-toggle"] {
     display: inline-block;
     transition: background-color 0.3s;
 }
-.enter-button:hover {
-    background-color: #0056b3;
-}
+.enter-button:hover { background-color: #0056b3; }
 #hero footer {
     position: absolute;
     bottom: 20px;
@@ -61,12 +53,8 @@ input[name="page-toggle"] {
     color: rgba(255, 255, 255, 0.7);
 }
 
-
 /* --- Top Navigation & Content Area (Hidden by default) --- */
-#top-nav, #content-display-area {
-    display: none;
-}
-/* Styles for nav and content sections remain the same as before */
+#top-nav, #content-display-area { display: none; }
 #top-nav {
     position: fixed; top: 0; left: 0; width: 100%;
     background-color: var(--nav-background-color);
@@ -89,16 +77,15 @@ input[name="page-toggle"] {
     max-height: 70vh; overflow-y: auto; animation: fadeInScale 0.5s ease-out;
 }
 @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-.page-section h2 { margin-top: 0; }
+.page-section h2 { margin-top: 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;}
+.page-section h2 i { margin-right: 12px; }
 .contact-list a { color: var(--primary-color); text-decoration: none; }
-
 
 /* ============================================= */
 /* ====== THE PURE CSS LOGIC STARTS HERE ======= */
 /* ============================================= */
 
 /* STATE 1: HERO VIEW (DEFAULT) */
-/* When the 'page-hero' radio is checked, display the #hero section as a full-page container */
 #page-hero:checked ~ #hero {
     display: flex;
     flex-direction: column;
@@ -108,8 +95,6 @@ input[name="page-toggle"] {
     width: 100%;
     position: relative;
 }
-/* In this state, the nav and content are hidden (this is their default state) */
-
 
 /* STATE 2: CONTENT VIEW */
 /* When ANY OTHER radio is checked, turn the #hero into a fixed background */
@@ -120,11 +105,7 @@ input[name="page-toggle"] {
 #page-projects:checked ~ #hero,
 #page-achievements:checked ~ #hero {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
 }
 /* And hide the hero's text content */
 #page-profile:checked ~ #hero .hero-content,
@@ -138,29 +119,39 @@ input[name="page-toggle"] {
 
 /* In this state, also show the top nav and content area */
 #page-profile:checked ~ #top-nav,
-#page-profile:checked ~ #content-display-area,
 #page-contact:checked ~ #top-nav,
-#page-contact:checked ~ #content-display-area
-/* ... (add other page IDs here for a complete solution) ... */ {
+#page-education:checked ~ #top-nav,
+#page-skills:checked ~ #top-nav,
+#page-projects:checked ~ #top-nav,
+#page-achievements:checked ~ #top-nav {
     display: block; /* For nav */
 }
 #page-profile:checked ~ #content-display-area,
-#page-contact:checked ~ #content-display-area
-/* ... etc ... */ {
+#page-contact:checked ~ #content-display-area,
+#page-education:checked ~ #content-display-area,
+#page-skills:checked ~ #content-display-area,
+#page-projects:checked ~ #content-display-area,
+#page-achievements:checked ~ #content-display-area {
     display: flex; /* For main content area */
 }
 
 /* RULE: Show the correct page section based on the checked radio */
 #page-profile:checked ~ #content-display-area #profile,
-#page-contact:checked ~ #content-display-area #contact
-/* ... etc ... */ {
+#page-contact:checked ~ #content-display-area #contact,
+#page-education:checked ~ #content-display-area #education,
+#page-skills:checked ~ #content-display-area #skills,
+#page-projects:checked ~ #content-display-area #projects,
+#page-achievements:checked ~ #content-display-area #achievements {
     display: block;
 }
 
 /* RULE: Highlight the correct nav link based on the checked radio */
 #page-profile:checked ~ #top-nav label[for="page-profile"],
-#page-contact:checked ~ #top-nav label[for="page-contact"]
-/* ... etc ... */ {
+#page-contact:checked ~ #top-nav label[for="page-contact"],
+#page-education:checked ~ #top-nav label[for="page-education"],
+#page-skills:checked ~ #top-nav label[for="page-skills"],
+#page-projects:checked ~ #top-nav label[for="page-projects"],
+#page-achievements:checked ~ #top-nav label[for="page-achievements"] {
     color: var(--primary-color);
     font-weight: 600;
 }
