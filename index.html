@@ -3,146 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praneeth P | Personal Portfolio</title>
+    <title>Praneeth P | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
+    <input type="radio" name="page-toggle" id="page-hero" checked>
+    <input type="radio" name="page-toggle" id="page-profile">
+    <input type="radio" name="page-toggle" id="page-contact">
+    <input type="radio" name="page-toggle" id="page-education">
+    <input type="radio" name="page-toggle" id="page-skills">
+    <input type="radio" name="page-toggle" id="page-projects">
+    <input type="radio" name="page-toggle" id="page-achievements">
 
     <section id="hero">
         <div class="hero-content">
             <h1>Hi, I'm Praneeth P</h1>
             <p>Aspiring Computer Science Engineer | Passionate about Software Development & Design</p>
+            <label for="page-profile" class="enter-button">View My Work</label>
         </div>
     </section>
 
-    <button id="open-menu-btn" title="Open Menu">
-        <i class="fas fa-bars"></i>
-    </button>
+    <div id="main-content-wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Praneeth P</h3>
+            </div>
+            <ul class="nav-links">
+                <li><label for="page-profile" class="nav-link"><i class="fas fa-user-circle"></i> Profile</label></li>
+                <li><label for="page-contact" class="nav-link"><i class="fas fa-address-book"></i> Contact</label></li>
+                <li><label for="page-education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</label></li>
+                <li><label for="page-skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</label></li>
+                <li><label for="page-projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</label></li>
+                <li><label for="page-achievements" class="nav-link"><i class="fas fa-trophy"></i> Achievements</label></li>
+            </ul>
+        </nav>
 
-    <nav id="sidebar">
-        <button class="close-btn" title="Close Menu">&times;</button>
-        
-        <div class="sidebar-content">
-            <section id="profile">
-                <h2>Profile</h2>
-                <p>
-                    Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts. Skilled in Java, Python, and C/C++ with hands-on experience in database management and web application development. Eager to contribute to innovative projects, quickly adapt to new technologies, and deliver impactful solutions.
-                </p>
+        <main id="main-content">
+            <section id="profile" class="page-section">
+                <h2><i class="fas fa-user-circle"></i> Profile</h2>
+                <p>Detail-oriented...</p>
+            </section>
+            
+            <section id="contact" class="page-section">
+                <h2><i class="fas fa-address-book"></i> Contact</h2>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone"></i> +91 9449671820</li>
+                    <li><i class="fas fa-envelope"></i> praneethpajimanu124@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Puttur, Karnataka</li>
+                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></li>
+                </ul>
             </section>
 
-            <section id="contact">
-                <h2>Contact</h2>
-                <div class="contact-item">
-                    <i class="fas fa-phone fa-fw"></i>
-                    <span>+91 9449671820</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <a href="mailto:praneethpajimanu124@gmail.com">praneethpajimanu124@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt fa-fw"></i>
-                    <span>Puttur, Karnataka</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin fa-fw"></i>
-                    <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a>
-                </div>
-            </section>
-
-            <section id="education">
-                <h2>Education</h2>
+            <section id="education" class="page-section">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
                 <h3>Bachelor’s Degree in Computer Science</h3>
-                <p>Vivekananda College of Engineering and Technology (2023–2027)</p>
+                <p>Vivekananda College of Engineering and Technology</p>
+                <p class="date">(2023–2027)</p>
             </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Java</li>
-                    <li>C</li>
-                    <li>Python</li>
+            <section id="skills" class="page-section">
+                 <h2><i class="fas fa-cogs"></i> Skills & Strengths</h2>
+                <ul class="skills-list">
+                    <li>Java, C, Python</li>
                     <li>Data Structures & OOP</li>
-                    <li>HTML, CSS, JS</li>
-                    <li>Flask</li>
-                    <li>MySQL (CRUD)</li>
+                    <li>HTML, CSS, JS, Flask</li>
+                    <li>MySQL (CRUD, Optimization)</li>
+                    <li>Analytical Thinking & Teamwork</li>
                 </ul>
             </section>
 
-             <section id="strengths">
-                <h2>Strengths</h2>
-                <ul>
-                    <li>Analytical Thinking</li>
-                    <li>Teamwork</li>
-                    <li>Communication</li>
-                </ul>
+            <section id="projects" class="page-section">
+                <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                <p>Contact Book App, Chat Application...</p>
             </section>
 
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="project-card">
-                    <h3>Contact Book App</h3>
-                    <p>Flask, Python, HTML, MySQL</p>
-                </div>
-                <div class="project-card">
-                    <h3>Chat Application</h3>
-                    <p>Real-time Flask app</p>
-                </div>
-                <div class="project-card">
-                    <h3>Database System</h3>
-                    <p>Java + MySQL (CRUD)</p>
-                </div>
-                <div class="project-card">
-                    <h3>Cybersecurity Tool</h3>
-                    <p>Password checker & vulnerability scanner</p>
-                </div>
+            <section id="achievements" class="page-section">
+                <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+                <p>100+ Problems Solved, Certifications from AWS...</p>
             </section>
-            
-            <section id="achievements">
-                <h2>Achievements & Certifications</h2>
-                <div class="achievement-item">
-                    <h3>100+ Problems Solved</h3>
-                    <p>LeetCode, HackerRank, Codeforces</p>
-                </div>
-                <div class="achievement-item">
-                    <h3>Certifications</h3>
-                    <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
-                </div>
-            </section>
-        </div>
-    </nav>
-    
-    <script>
-        // This ensures the code runs only after the webpage's content has fully loaded.
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Find the important elements on the page and store them in variables.
-            const sidebar = document.getElementById('sidebar');
-            const openMenuBtn = document.getElementById('open-menu-btn');
-            const closeBtn = document.querySelector('.close-btn');
-
-            // Check if all elements were found before adding event listeners.
-            if (sidebar && openMenuBtn && closeBtn) {
-                
-                // When the "hamburger" button is clicked, add the 'open' class to the sidebar.
-                // This makes it slide into view because of the CSS rule.
-                openMenuBtn.addEventListener('click', () => {
-                    sidebar.classList.add('open');
-                });
-
-                // When the "close" button (the '×') is clicked, remove the 'open' class.
-                // This makes the sidebar slide back out of view.
-                closeBtn.addEventListener('click', () => {
-                    sidebar.classList.remove('open');
-                });
-
-            } else {
-                // If an element wasn't found, log an error to the browser's console.
-                console.error('Could not find one or more required elements: sidebar, open-menu-btn, or close-btn.');
-            }
-        });
-    </script>
+        </main>
+    </div>
 
 </body>
 </html>
