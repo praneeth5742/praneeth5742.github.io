@@ -1,157 +1,74 @@
-:root {
-    --primary-color: #007BFF;
-    --background-card-color: rgba(255, 255, 255, 0.95);
-    --nav-background-color: rgba(20, 25, 35, 0.85);
-    --text-color: #333;
-    --heading-color: #1a1a1a;
-    --light-text-color: #f0f0f0;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Segoe UI", sans-serif; height: 100vh; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+
+/* Navbar */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #bf61c7; padding: 15px 30px;
+}
+nav .logo { font-size: 20px; font-weight: bold; color: #d9dee0; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav ul li a {
+  color: #f5f5f5; font-weight: 500; padding: 5px 10px; border-radius: 6px;
+  transition: background 0.3s;
+}
+nav ul li a:hover { background: #333; }
+
+/* Sections */
+section {
+  width: 100%; min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section h2 {
+  font-size: 2rem; margin-bottom: 30px;
+  text-align: center;
+}
+section h2::after {
+  content: ""; display: block; width: 60px; height: 3px;
+  background: #EEE8AA; margin: 10px auto 0;
 }
 
-body, html {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; /* Critical: disables all scrolling */
+/* Layout */
+.grid {
+  display: flex; justify-content: center; align-items: center;
+  gap: 20px; flex-wrap: wrap;
+}
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px; border-radius: 10px;
+  text-align: center; transition: 0.3s;
+  min-width: 200px;
+}
+.card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.2); }
+.card i { font-size: 2.5rem; margin-bottom: 15px; }
+.card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+
+/* Hero */
+.hero h1 { font-size: 3rem; margin-bottom: 15px; text-align: center; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; text-align: center; }
+.hero a {
+  display: inline-block;
+  background: #007bff; color: #fff; padding: 10px 20px; border-radius: 6px;
+  transition: background 0.3s;
+}
+.hero a:hover { background: #0056b3; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  background: #663399;
+  position: fixed;
+  bottom: 0; left: 0; width: 100%;
 }
 
-input[name="page-toggle"] {
-    display: none;
-}
-
-/* --- The Hero Section Element --- */
-#hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-}
-
-#hero .hero-content {
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-.hero-content p { font-size: 1.2rem; font-weight: 300; }
-.enter-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-.enter-button:hover { background-color: #0056b3; }
-#hero footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* --- Top Navigation & Content Area (Hidden by default) --- */
-#top-nav, #content-display-area { display: none; }
-#top-nav {
-    position: fixed; top: 0; left: 0; width: 100%;
-    background-color: var(--nav-background-color);
-    backdrop-filter: blur(10px); z-index: 100;
-}
-.nav-container {
-    display: flex; justify-content: space-between; align-items: center;
-    max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 60px;
-}
-.nav-title { font-size: 1.5rem; font-weight: 600; color: var(--light-text-color); }
-.nav-links .nav-link { color: var(--light-text-color); margin: 0 15px; cursor: pointer; }
-#content-display-area {
-    display: flex; justify-content: center; align-items: center;
-    height: 100vh; padding-top: 60px;
-}
-.page-section {
-    display: none; background-color: var(--background-card-color);
-    padding: 25px 40px; border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 700px;
-    max-height: 70vh; overflow-y: auto; animation: fadeInScale 0.5s ease-out;
-}
-@keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-.page-section h2 { margin-top: 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;}
-.page-section h2 i { margin-right: 12px; }
-.contact-list a { color: var(--primary-color); text-decoration: none; }
-
-/* ============================================= */
-/* ====== THE PURE CSS LOGIC STARTS HERE ======= */
-/* ============================================= */
-
-/* STATE 1: HERO VIEW (DEFAULT) */
-#page-hero:checked ~ #hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-}
-
-/* STATE 2: CONTENT VIEW */
-/* When ANY OTHER radio is checked, turn the #hero into a fixed background */
-#page-profile:checked ~ #hero,
-#page-contact:checked ~ #hero,
-#page-education:checked ~ #hero,
-#page-skills:checked ~ #hero,
-#page-projects:checked ~ #hero,
-#page-achievements:checked ~ #hero {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-}
-/* And hide the hero's text content */
-#page-profile:checked ~ #hero .hero-content,
-#page-contact:checked ~ #hero .hero-content,
-#page-education:checked ~ #hero .hero-content,
-#page-skills:checked ~ #hero .hero-content,
-#page-projects:checked ~ #hero .hero-content,
-#page-achievements:checked ~ #hero .hero-content {
-    display: none;
-}
-
-/* In this state, also show the top nav and content area */
-#page-profile:checked ~ #top-nav,
-#page-contact:checked ~ #top-nav,
-#page-education:checked ~ #top-nav,
-#page-skills:checked ~ #top-nav,
-#page-projects:checked ~ #top-nav,
-#page-achievements:checked ~ #top-nav {
-    display: block; /* For nav */
-}
-#page-profile:checked ~ #content-display-area,
-#page-contact:checked ~ #content-display-area,
-#page-education:checked ~ #content-display-area,
-#page-skills:checked ~ #content-display-area,
-#page-projects:checked ~ #content-display-area,
-#page-achievements:checked ~ #content-display-area {
-    display: flex; /* For main content area */
-}
-
-/* RULE: Show the correct page section based on the checked radio */
-#page-profile:checked ~ #content-display-area #profile,
-#page-contact:checked ~ #content-display-area #contact,
-#page-education:checked ~ #content-display-area #education,
-#page-skills:checked ~ #content-display-area #skills,
-#page-projects:checked ~ #content-display-area #projects,
-#page-achievements:checked ~ #content-display-area #achievements {
-    display: block;
-}
-
-/* RULE: Highlight the correct nav link based on the checked radio */
-#page-profile:checked ~ #top-nav label[for="page-profile"],
-#page-contact:checked ~ #top-nav label[for="page-contact"],
-#page-education:checked ~ #top-nav label[for="page-education"],
-#page-skills:checked ~ #top-nav label[for="page-skills"],
-#page-projects:checked ~ #top-nav label[for="page-projects"],
-#page-achievements:checked ~ #top-nav label[for="page-achievements"] {
-    color: var(--primary-color);
-    font-weight: 600;
-}
+/* Backgrounds */
+#hero { background: linear-gradient(135deg, #ff758c, #981d50, #6a11cb); }
+.page { background: #121212; color: #EEE8AA; }
