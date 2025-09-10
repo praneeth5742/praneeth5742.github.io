@@ -4,111 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praneeth P | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* General Body Styles */
+        html {
+            scroll-behavior: smooth; /* This creates the smooth scrolling effect */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Sticky Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky; /* Makes the header stick to the top */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+            min-height: 70vh; /* Gives each section some space */
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Specific Section Backgrounds for visual separation */
+        #about { background-color: #ffffff; }
+        #education { background-color: #f0f2f5; }
+        #projects { background-color: #ffffff; }
+        #achievements { background-color: #f0f2f5; }
+        #contact { background-color: #ffffff; }
+
+        /* Home/Hero Section */
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=2070&auto=format&fit=crop) no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+
+        /* Card Style for content */
+        .card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        #education .card, #achievements .card {
+             background-color: #e9ecef;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-    <input type="radio" name="page-toggle" id="page-hero" checked> <input type="radio" name="page-toggle" id="page-profile">
-    <input type="radio" name="page-toggle" id="page-contact">
-    <input type="radio" name="page-toggle" id="page-education">
-    <input type="radio" name="page-toggle" id="page-skills">
-    <input type="radio" name="page-toggle" id="page-projects">
-    <input type="radio" name="page-toggle" id="page-achievements">
-
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Praneeth P</h1>
-            <p>Aspiring Computer Science Engineer | Passionate about Software Development & Design</p>
-            <label for="page-profile" class="enter-button">View My Work</label>
-        </div>
-        <footer>
-            &copy; 2025 Praneeth P. All Rights Reserved.
-        </footer>
-    </section>
-
-    <header id="top-nav">
-        <div class="nav-container">
-            <div class="nav-title">Praneeth P</div>
-            <nav class="nav-links">
-                <label for="page-profile" class="nav-link">Profile</label>
-                <label for="page-contact" class="nav-link">Contact</label>
-                <label for="page-education" class="nav-link">Education</label>
-                <label for="page-skills" class="nav-link">Skills</label>
-                <label for="page-projects" class="nav-link">Projects</label>
-                <label for="page-achievements" class="nav-link">Achievements</label>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <a href="#home" class="nav-brand">Praneeth P</a>
+            <ul>
+                <li><a href="#about">About & Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main id="content-display-area">
-        
-        <section id="profile" class="page-section">
-            <h2><i class="fas fa-user-circle"></i> Profile</h2>
-            <p>Detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts. Skilled in Java, Python, and C/C++ with hands-on experience in database management and web application development. Eager to contribute to innovative projects, quickly adapt to new technologies, and deliver impactful solutions.</p>
-        </section>
-        
-        <section id="contact" class="page-section">
-            <h2><i class="fas fa-address-book"></i> Contact</h2>
-            <ul class="contact-list">
-                <li><i class="fas fa-phone"></i> +91 9449671820</li>
-                <li><i class="fas fa-envelope"></i> praneethpajimanu124@gmail.com</li>
-                <li><i class="fas fa-map-marker-alt"></i> Puttur, Karnataka</li>
-                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/praneeth-p-786721296" target="_blank">LinkedIn Profile</a></li>
-            </ul>
+    <main>
+        <section id="home">
+            <div class="hero-content">
+                <h1>Hi, I'm Praneeth P</h1>
+                <p>Aspiring Computer Science Engineer | Passionate about Software Development & Design</p>
+            </div>
         </section>
 
-        <section id="education" class="page-section">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <h3>Bachelor’s Degree in Computer Science</h3>
-            <p>Vivekananda College of Engineering and Technology</p>
-            <p class="date">(2023–2027)</p>
+        <section id="about">
+            <div class="container">
+                <h2>About Me & Skills</h2>
+                <div class="card">
+                    <p>I am a detail-oriented and highly motivated technology enthusiast with strong foundations in data structures, algorithms, and programming concepts.</p>
+                    <h3>My Skills</h3>
+                    <ul>
+                        <li>Java, C, Python</li>
+                        <li>Data Structures & Object-Oriented Programming</li>
+                        <li>HTML, CSS, Flask</li>
+                        <li>MySQL (CRUD Operations)</li>
+                        <li>Analytical Thinking & Teamwork</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section id="skills" class="page-section">
-             <h2><i class="fas fa-cogs"></i> Skills & Strengths</h2>
-            <ul class="skills-list">
-                <li>Java, C, Python</li>
-                <li>Data Structures & OOP</li>
-                <li>HTML, CSS, JS, Flask</li>
-                <li>MySQL (CRUD, Optimization)</li>
-                <li>Analytical Thinking & Teamwork</li>
-            </ul>
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="card">
+                    <h3>Bachelor’s Degree in Computer Science</h3>
+                    <p><strong>Vivekananda College of Engineering and Technology</strong></p>
+                    <p>(2023–2027)</p>
+                </div>
+            </div>
         </section>
 
-        <section id="projects" class="page-section">
-            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
-            <div class="project-item">
-                <h3>Contact Book App</h3>
-                <p><strong>Technologies:</strong> Flask, Python, HTML, MySQL</p>
-            </div>
-            <div class="project-item">
-                <h3>Chat Application</h3>
-                <p><strong>Description:</strong> Real-time Flask app for instant messaging.</p>
-            </div>
-             <div class="project-item">
-                    <h3>Database System</h3>
-                    <p><strong>Description:</strong> A Java + MySQL application demonstrating CRUD operations.</p>
-            </div>
-             <div class="project-item">
+        <section id="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="card">
+                    <h3>Contact Book App</h3>
+                    <p><strong>Technologies:</strong> Flask, Python, HTML, MySQL. A web application to manage contacts.</p>
+                </div>
+                <div class="card">
                     <h3>Cybersecurity Tool</h3>
-                    <p><strong>Description:</strong> A tool featuring a password checker & vulnerability scanner.</p>
+                    <p><strong>Technologies:</strong> Python. A tool featuring a password checker & vulnerability scanner.</p>
+                </div>
+                <div class="card">
+                    <h3>Database System</h3>
+                    <p><strong>Technologies:</strong> Java, MySQL. An application demonstrating CRUD operations.</p>
+                </div>
             </div>
         </section>
 
-        <section id="achievements" class="page-section">
-            <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
-            <h3>100+ Problems Solved</h3>
-            <p>Platforms: LeetCode, HackerRank, Codeforces</p>
-            <hr>
-            <h3>Certifications</h3>
-            <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
+        <section id="achievements">
+            <div class="container">
+                <h2>Achievements & Certifications</h2>
+                <div class="card">
+                    <h3>100+ Problems Solved</h3>
+                    <p>Platforms: LeetCode, HackerRank, Codeforces</p>
+                    <hr>
+                    <h3>Certifications</h3>
+                    <p>AWS, Infosys Springboard, Coursera, NPTEL</p>
+                </div>
+            </div>
         </section>
 
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="card">
+                    <p>Feel free to reach out to me via email or connect with me on LinkedIn.</p>
+                    <ul>
+                        <li><strong>Email:</strong> praneethpajimanu124@gmail.com</li>
+                        <li><strong>Phone:</strong> +91 9449671820</li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/praneeth-p-786721296">praneeth-p</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Praneeth P. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
